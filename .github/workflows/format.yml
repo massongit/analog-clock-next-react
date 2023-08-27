@@ -14,8 +14,7 @@ permissions:
   contents: write
   pull-requests: write
 jobs:
-  # npm installを実行した結果、差分があればPRを作る
-  update-package:
+  format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.6.0
@@ -23,6 +22,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
+          token: ${{secrets.CREATE_WORKFLOW_CI_TOKEN}}
       - uses: actions/setup-node@v3.8.1
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
@@ -31,36 +31,15 @@ jobs:
       - name: Get Node.js version
         id: get_node_version
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        run: bash "${GITHUB_WORKSPACE}/scripts/format/update_package/get_node_version.sh"
+        run: bash "${GITHUB_WORKSPACE}/scripts/format/format/get_node_version.sh"
       - name: Update versions
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         env:
           NODE_VERSION: ${{steps.get_node_version.outputs.node_version}}
           NPM_VERSION: ${{steps.get_node_version.outputs.npm_version}}
-        run: bash "${GITHUB_WORKSPACE}/scripts/format/update_package/update_versions.sh"
+        run: bash "${GITHUB_WORKSPACE}/scripts/format/format/update_versions.sh"
       - name: Update packages
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        run: npm install
-      - uses: dev-hato/actions-diff-pr-management@v1.1.6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          branch-name-prefix: fix-version
-          pr-title-prefix: nodeのバージョンを直してあげたよ！
-  format:
-    runs-on: ubuntu-latest
-    needs: update-package
-    steps:
-      - uses: actions/checkout@v3.6.0
-        if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
-      - uses: actions/setup-node@v3.8.1
-        if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        with:
-          node-version-file: .node-version
-          cache: npm
-      - if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: npm install
       - if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: npm run format
