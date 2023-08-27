@@ -1,3 +1,5 @@
 {
-  "extends": ["github>dev-hato/renovate-config"]
+  "extends": [
+    "github>dev-hato/renovate-config"
+  ]
 }
