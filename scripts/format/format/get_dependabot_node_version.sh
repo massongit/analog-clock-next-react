@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mapfile -t result < <(eval "${DOCKER_CMD}")
+mapfile -t result < <(docker run ghcr.io/dependabot/dependabot-core sh -c "${DOCKER_CMD}")
 node_version="${result[0]//v/}"
 npm_version=${result[1]}
 echo "Node.js version:" "${node_version}"
