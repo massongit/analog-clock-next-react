@@ -11,7 +11,7 @@ on:
       - reopened
       - closed
 jobs:
-  # .node-version や package.json のNode.js・npmのバージョンをDockerイメージと同期させ、npm installを実行した結果、差分があればPRを作る
+  # npm installを実行した結果、差分があればPRを作る
   update-package:
     runs-on: ubuntu-latest
     permissions:
