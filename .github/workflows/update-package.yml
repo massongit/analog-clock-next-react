@@ -29,16 +29,14 @@ jobs:
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         id: get_dependabot_node_version
         run: bash "${GITHUB_WORKSPACE}/scripts/update_package/update_package/get_dependabot_node_version.sh"
-      - run: echo "TAG_NAME=${HEAD_REF//\//-}" >> "$GITHUB_ENV"
-        env:
-          HEAD_REF: ${{github.head_ref}}
-        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+      - uses: actions/setup-node@v3.8.1
+        if: github.event_name != 'pull_request' || github.event.action != 'closed'
+        with:
+          node-version-file: .node-version
+          cache: npm
       - name: Get Node.js version
         id: get_node_version
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        env:
-          DOCKER_CONTENT_TRUST: 1
-          REPOSITORY: ${{github.repository}}
         run: bash "${GITHUB_WORKSPACE}/scripts/update_package/update_package/get_node_version.sh"
       - name: Update versions
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
@@ -48,11 +46,6 @@ jobs:
           NODE_VERSION: ${{steps.get_node_version.outputs.node_version}}
           NPM_VERSION: ${{steps.get_node_version.outputs.npm_version}}
         run: bash "${GITHUB_WORKSPACE}/scripts/update_package/update_package/update_versions.sh"
-      - uses: actions/setup-node@v3.8.1
-        if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        with:
-          node-version-file: .node-version
-          cache: npm
       - name: Update packages
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: npm install
