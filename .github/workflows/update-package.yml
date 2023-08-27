@@ -25,10 +25,6 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-      - name: Get Dependabot Node.js version
-        if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        id: get_dependabot_node_version
-        run: bash "${GITHUB_WORKSPACE}/scripts/update_package/update_package/get_dependabot_node_version.sh"
       - uses: actions/setup-node@v3.8.1
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
@@ -41,8 +37,6 @@ jobs:
       - name: Update versions
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         env:
-          DEPENDABOT_NODE_VERSION: ${{steps.get_dependabot_node_version.outputs.node_version}}
-          DEPENDABOT_NPM_VERSION: ${{steps.get_dependabot_node_version.outputs.npm_version}}
           NODE_VERSION: ${{steps.get_node_version.outputs.node_version}}
           NPM_VERSION: ${{steps.get_node_version.outputs.npm_version}}
         run: bash "${GITHUB_WORKSPACE}/scripts/update_package/update_package/update_versions.sh"
