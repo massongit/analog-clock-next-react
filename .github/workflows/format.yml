@@ -1,5 +1,5 @@
 ---
-name: update-package
+name: format
 on:
   push:
     branches:
