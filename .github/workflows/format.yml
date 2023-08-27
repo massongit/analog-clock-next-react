@@ -43,11 +43,9 @@ jobs:
         run: npm install
       - if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: npm run format
-      - uses: dev-hato/actions-diff-pr-management@v1.1.6
+      - uses: dev-hato/actions-format-json-yml@v0.0.47
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
-          branch-name-prefix: fix-format
-          pr-title-prefix: formatを直してあげたよ！
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
