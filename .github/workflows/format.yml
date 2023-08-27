@@ -31,13 +31,13 @@ jobs:
       - name: Get Node.js version
         id: get_node_version
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        run: bash "${GITHUB_WORKSPACE}/scripts/format/format/get_node_version.sh"
+        run: bash "${GITHUB_WORKSPACE}/scripts/format/update_package/get_node_version.sh"
       - name: Update versions
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         env:
           NODE_VERSION: ${{steps.get_node_version.outputs.node_version}}
           NPM_VERSION: ${{steps.get_node_version.outputs.npm_version}}
-        run: bash "${GITHUB_WORKSPACE}/scripts/format/format/update_versions.sh"
+        run: bash "${GITHUB_WORKSPACE}/scripts/format/update_package/update_versions.sh"
       - name: Update packages
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: npm install
