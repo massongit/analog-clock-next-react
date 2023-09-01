@@ -42,7 +42,7 @@
     "textlint-rule-prefer-tari-tari": "1.0.3",
     "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-ja-technical-writing": "8.0.0",
-    "textlint-rule-terminology": "3.0.5",
+    "textlint-rule-terminology": "4.0.0",
     "typescript": "5.2.2"
   },
   "engines": {
