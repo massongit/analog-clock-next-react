@@ -27,7 +27,7 @@
     "eslint": "8.54.0",
     "eslint-config-next": "14.0.3",
     "postcss": "8.4.32",
-    "prettier": "3.1.0",
+    "prettier": "3.1.1",
     "textlint": "13.4.1",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-abbr-within-parentheses": "1.0.2",
