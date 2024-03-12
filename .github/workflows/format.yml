@@ -19,7 +19,7 @@ jobs:
     env:
       DOCKER_CMD: "node --version && npm --version"
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
           fetch-depth: 0
