@@ -57,7 +57,7 @@ jobs:
         run: npm install
       - if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: bash "${GITHUB_WORKSPACE}/scripts/format/format/format.sh"
-      - uses: dev-hato/actions-diff-pr-management@v1.1.12
+      - uses: dev-hato/actions-diff-pr-management@8d475e5bc78f61c40024d4859b79134b66f788d2 # v1.2.1
         with:
           github-token: ${{steps.generate_token.outputs.token}}
           branch-name-prefix: fix-format
