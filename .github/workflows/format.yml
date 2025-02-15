@@ -19,12 +19,18 @@ jobs:
     env:
       DOCKER_CMD: "node --version && npm --version"
     steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@0d564482f06ca65fa9e77e2510873638c82206f2 # v1.11.5
+        with:
+          app-id: ${{ secrets.PROJECT_AUTOMATION_APP_ID }}
+          private-key: ${{ secrets.PROJECT_AUTOMATION_PRIVATE_KEY }}
       - uses: actions/checkout@v4.1.2
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
-          token: ${{secrets.CREATE_WORKFLOW_CI_TOKEN}}
+          token: ${{steps.generate_token.outputs.token}}
       - name: Get Dependabot Node.js version
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         id: get_dependabot_node_version
@@ -53,7 +59,7 @@ jobs:
         run: bash "${GITHUB_WORKSPACE}/scripts/format/format/format.sh"
       - uses: dev-hato/actions-diff-pr-management@v1.1.12
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{steps.generate_token.outputs.token}}
           branch-name-prefix: fix-format
           pr-title-prefix: formatを直してあげたよ！
 concurrency:
