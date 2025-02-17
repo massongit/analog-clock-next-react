@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - run: bash "${GITHUB_WORKSPACE}/scripts/super_linter/super_linter/set_path.sh"
       - name: Super-Linter
-        uses: super-linter/super-linter/slim@1fa6ba58a88783e9714725cf89ac26d53e80c148 # v6.9.0
+        uses: super-linter/super-linter/slim@85f7611e0f7b53c8573cca84aa0ed4344f6f6a4d # v7.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
