@@ -10,7 +10,7 @@
     "format": "prettier --write ."
   },
   "engines": {
-    "node": "22.14.0"
+    "node": "22.x"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
