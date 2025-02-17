@@ -23,7 +23,7 @@
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/node": "22.13.4",
-    "@types/react": "19.0.9",
+    "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "autoprefixer": "10.4.20",
     "cross-env": "7.0.3",
