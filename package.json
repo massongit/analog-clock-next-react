@@ -30,7 +30,7 @@
     "eslint": "9.21.0",
     "eslint-config-next": "15.1.7",
     "postcss": "8.5.3",
-    "prettier": "3.5.1",
+    "prettier": "3.5.2",
     "textlint": "14.4.2",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-rule-abbr-within-parentheses": "1.0.2",
