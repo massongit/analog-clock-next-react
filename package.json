@@ -19,7 +19,7 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "15.1.7",
+    "@next/bundle-analyzer": "15.4.3",
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/node": "22.13.5",
@@ -28,7 +28,7 @@
     "autoprefixer": "10.4.20",
     "cross-env": "7.0.3",
     "eslint": "9.21.0",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.4.3",
     "postcss": "8.5.3",
     "prettier": "3.5.2",
     "textlint": "14.4.2",
