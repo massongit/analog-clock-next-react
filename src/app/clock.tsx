@@ -22,10 +22,10 @@ export default function Clock() {
 		const array = [...Array(60)];
 		return array.map((_, i) => {
 			if (i % 5 === 0) {
-                // biome-ignore lint/suspicious/noArrayIndexKey
+				// biome-ignore lint/suspicious/noArrayIndexKey
 				return <LongClockFace key={i} minute={i} clockRadius={clockRadius} />;
 			} else {
-                // biome-ignore lint/suspicious/noArrayIndexKey
+				// biome-ignore lint/suspicious/noArrayIndexKey
 				return <ShortClockFace key={i} minute={i} clockRadius={clockRadius} />;
 			}
 		});
