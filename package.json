@@ -1,50 +1,50 @@
 {
-  "name": "analog-clock",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "node -v && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write ."
-  },
-  "engines": {
-    "node": "^16.19.0 || ^22.21.1"
-  },
-  "dependencies": {
-    "@emotion/react": "11.14.0",
-    "next": "15.4.8",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "15.5.6",
-    "@proofdict/textlint-rule-proofdict": "3.1.2",
-    "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
-    "@types/node": "22.13.5",
-    "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
-    "autoprefixer": "10.4.22",
-    "cross-env": "7.0.3",
-    "eslint": "9.39.1",
-    "eslint-config-next": "15.5.6",
-    "postcss": "8.5.6",
-    "prettier": "3.5.2",
-    "textlint": "15.4.0",
-    "textlint-filter-rule-comments": "1.2.2",
-    "textlint-rule-abbr-within-parentheses": "1.0.2",
-    "textlint-rule-footnote-order": "1.0.3",
-    "textlint-rule-general-novel-style-ja": "dev-hato/textlint-rule-general-novel-style-ja-markdown",
-    "textlint-rule-ja-hiragana-fukushi": "1.3.0",
-    "textlint-rule-ja-hiragana-hojodoushi": "1.1.0",
-    "textlint-rule-ja-hiragana-keishikimeishi": "1.1.0",
-    "textlint-rule-no-dead-link": "6.0.1",
-    "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "1.0.1",
-    "textlint-rule-prefer-tari-tari": "1.0.3",
-    "textlint-rule-preset-ja-spacing": "2.4.3",
-    "textlint-rule-preset-ja-technical-writing": "12.0.2",
-    "textlint-rule-terminology": "5.2.16",
-    "typescript": "5.7.3"
-  }
+	"name": "analog-clock",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "node -v && next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write ."
+	},
+	"engines": {
+		"node": "^16.19.0 || ^22.21.1"
+	},
+	"dependencies": {
+		"@emotion/react": "11.14.0",
+		"next": "15.4.8",
+		"react": "19.0.0",
+		"react-dom": "19.0.0"
+	},
+	"devDependencies": {
+		"@next/bundle-analyzer": "15.5.6",
+		"@proofdict/textlint-rule-proofdict": "3.1.2",
+		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
+		"@types/node": "22.13.5",
+		"@types/react": "19.0.10",
+		"@types/react-dom": "19.0.4",
+		"autoprefixer": "10.4.22",
+		"cross-env": "7.0.3",
+		"eslint": "9.39.1",
+		"eslint-config-next": "15.5.6",
+		"postcss": "8.5.6",
+		"prettier": "3.5.2",
+		"textlint": "15.4.0",
+		"textlint-filter-rule-comments": "1.2.2",
+		"textlint-rule-abbr-within-parentheses": "1.0.2",
+		"textlint-rule-footnote-order": "1.0.3",
+		"textlint-rule-general-novel-style-ja": "dev-hato/textlint-rule-general-novel-style-ja-markdown",
+		"textlint-rule-ja-hiragana-fukushi": "1.3.0",
+		"textlint-rule-ja-hiragana-hojodoushi": "1.1.0",
+		"textlint-rule-ja-hiragana-keishikimeishi": "1.1.0",
+		"textlint-rule-no-dead-link": "6.0.1",
+		"textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "1.0.1",
+		"textlint-rule-prefer-tari-tari": "1.0.3",
+		"textlint-rule-preset-ja-spacing": "2.4.3",
+		"textlint-rule-preset-ja-technical-writing": "12.0.2",
+		"textlint-rule-terminology": "5.2.16",
+		"typescript": "5.7.3"
+	}
 }
