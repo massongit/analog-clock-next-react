@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { css } from "@emotion/react";
 import Clip from "@/app/clip";
 import LongClockFace from "@/app/clockFace/longClockFace";
@@ -17,17 +17,17 @@ export default function Clock() {
 	}, []);
 
 	const clockRadius = 250;
-	const clockDiameter = useMemo(() => clockRadius * 2, [clockRadius]);
+	const clockDiameter = useMemo(() => clockRadius * 2, []);
 	const clockFaces = useMemo(() => {
 		const array = [...Array(60)];
 		return array.map((_, i) => {
-			if (i % 5 == 0) {
+			if (i % 5 === 0) {
 				return <LongClockFace key={i} minute={i} clockRadius={clockRadius} />;
 			} else {
 				return <ShortClockFace key={i} minute={i} clockRadius={clockRadius} />;
 			}
 		});
-	}, [clockRadius]);
+	}, []);
 
 	return (
 		<div
