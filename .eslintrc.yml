@@ -13,6 +13,11 @@ ignorePatterns:
   - "**/node_modules/.*"
 plugins:
   - prettier
+rules:
+  react/no-unknown-property:
+    - error
+    - ignore:
+        - css
 overrides:
   # JSON files
   - files:
