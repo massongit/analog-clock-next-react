@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { css } from "@emotion/react";
 
 export default function Clip({ clockRadius }: { clockRadius: number }) {
