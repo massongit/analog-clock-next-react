@@ -35,7 +35,7 @@ jobs:
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         id: get_dependabot_node_version
         run: bash "${GITHUB_WORKSPACE}/scripts/format/format/get_dependabot_node_version.sh"
-      - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         with:
           node-version-file: package.json
