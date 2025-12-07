@@ -22,7 +22,7 @@
     "@next/bundle-analyzer": "15.5.6",
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
-    "@types/node": "22.13.5",
+    "@types/node": "22.19.1",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "autoprefixer": "10.4.22",
