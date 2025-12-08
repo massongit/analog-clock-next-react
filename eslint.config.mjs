@@ -37,6 +37,15 @@ export default defineConfig([
 				...globals.node,
 			},
 		},
+
+		rules: {
+			"react/no-unknown-property": [
+				"error",
+				{
+					ignore: ["css"],
+				},
+			],
+		},
 	},
 	{
 		files: ["**/*.json"],
