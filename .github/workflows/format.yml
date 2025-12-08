@@ -31,6 +31,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           token: ${{steps.generate_token.outputs.token}}
+          persist-credentials: false
       - name: Get Dependabot Node.js version
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
         id: get_dependabot_node_version
