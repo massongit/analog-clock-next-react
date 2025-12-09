@@ -124,6 +124,11 @@ export default defineConfig([
 			ecmaVersion: "latest",
 			sourceType: "module",
 		},
+
+		rules: {
+			// Disable for TypeScript - TypeScript handles module resolution with path aliases
+			"n/no-missing-import": "off",
+		},
 	},
 	{
 		files: ["**/*.vue"],
