@@ -81,7 +81,16 @@ export default defineConfig([
     },
   },
   {
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx", "**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
+    files: [
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.cts",
+      "**/*.mts",
+      "**/*.tsx",
+    ],
     extends: compat.extends("plugin:react/recommended"),
 
     languageOptions: {
