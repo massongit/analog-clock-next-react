@@ -11,7 +11,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import next from "@next/eslint-plugin-next";
 
+const { flatConfig: nextFlatConfig } = next;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
@@ -21,9 +23,10 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  nextFlatConfig.coreWebVitals,
   globalIgnores(["!**/.*", "**/node_modules/.*"]),
   {
-    extends: compat.extends("eslint:recommended", "next/core-web-vitals"),
+    extends: compat.extends("eslint:recommended"),
 
     plugins: {
       n,
@@ -95,6 +98,12 @@ export default defineConfig([
         },
       },
     },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
   {
     files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
@@ -117,6 +126,9 @@ export default defineConfig([
     },
 
     settings: {
+      react: {
+        version: "detect",
+      },
       node: {
         tryExtensions: [".js", ".tsx"],
       },
