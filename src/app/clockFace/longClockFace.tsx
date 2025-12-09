@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import ClockFace from "@/app/clockFace/clockFace";
 
 export default function LongClockFace({
