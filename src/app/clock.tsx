@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { css } from "@emotion/react";
 import Clip from "@/app/clip";
 import LongClockFace from "@/app/clockFace/longClockFace";
