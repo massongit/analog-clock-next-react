@@ -1,6 +1,5 @@
 // https://github.com/super-linter/super-linter/blob/0d8f7aad449c1dc8ecaf2362684de5d379d2cd7d/TEMPLATES/eslint.config.mjs
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
 import n from "eslint-plugin-n";
 import prettier from "eslint-plugin-prettier";
 import globals from "globals";
@@ -22,19 +21,9 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-	...nextVitals,
-	globalIgnores([
-		"!**/.*",
-		"**/node_modules/.*",
-
-		// Default ignores of eslint-config-next:
-		".next/**",
-		"out/**",
-		"build/**",
-		"next-env.d.ts",
-	]),
+	globalIgnores(["!**/.*", "**/node_modules/.*"]),
 	{
-		extends: compat.extends("eslint:recommended"),
+		extends: compat.extends("eslint:recommended", "next/core-web-vitals"),
 
 		plugins: {
 			n,
