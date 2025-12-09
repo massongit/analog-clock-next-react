@@ -95,6 +95,17 @@ export default defineConfig([
         },
       },
     },
+
+    settings: {
+      react: {
+        version: "detect",
+        runtime: "automatic",
+      },
+    },
+
+    rules: {
+      "react/no-unknown-property": ["error", { ignore: ["css"] }],
+    },
   },
   {
     files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
@@ -102,7 +113,6 @@ export default defineConfig([
     extends: compat.extends(
       "plugin:@typescript-eslint/recommended",
       "plugin:n/recommended",
-      "plugin:react/recommended",
       "prettier",
     ),
 
@@ -114,17 +124,25 @@ export default defineConfig([
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
+
+      parserOptions: {
+        jsxImportSource: "@emotion/react",
+      },
+    },
+
+    settings: {
+      node: {
+        tryExtensions: [".js", ".tsx"],
+      },
+
+      react: {
+        version: "detect",
+        runtime: "automatic",
+      },
     },
 
     rules: {
-      "n/no-missing-import": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/no-unknown-property": [
-        "error",
-        {
-          ignore: ["css"],
-        },
-      ],
+      "react/no-unknown-property": ["error", { ignore: ["css"] }],
     },
   },
   {
