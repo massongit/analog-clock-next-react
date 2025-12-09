@@ -17,17 +17,19 @@ export default function Clock() {
   }, []);
 
   const clockRadius = 250;
-  const clockDiameter = useMemo(() => clockRadius * 2, [clockRadius]);
+  const clockDiameter = useMemo(() => clockRadius * 2, []);
   const clockFaces = useMemo(() => {
     const array = [...Array(60)];
     return array.map((_, i) => {
-      if (i % 5 == 0) {
+      if (i % 5 === 0) {
+        // biome-ignore lint/suspicious/noArrayIndexKey: arrayは不変であるため
         return <LongClockFace key={i} minute={i} clockRadius={clockRadius} />;
       } else {
+        // biome-ignore lint/suspicious/noArrayIndexKey: arrayは不変であるため
         return <ShortClockFace key={i} minute={i} clockRadius={clockRadius} />;
       }
     });
-  }, [clockRadius]);
+  }, []);
 
   return (
     <div
