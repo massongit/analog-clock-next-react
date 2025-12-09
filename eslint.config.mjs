@@ -81,37 +81,13 @@ export default defineConfig([
     },
   },
   {
-    files: [
-      "**/*.js",
-      "**/*.mjs",
-      "**/*.cjs",
-      "**/*.jsx",
-      "**/*.ts",
-      "**/*.cts",
-      "**/*.mts",
-      "**/*.tsx",
-    ],
+    files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx"],
     extends: compat.extends("plugin:react/recommended"),
 
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-    },
 
-    rules: {
-      "react/react-in-jsx-scope": "off",
-      "react/no-unknown-property": [
-        "error",
-        {
-          ignore: ["css"],
-        },
-      ],
-    },
-  },
-  {
-    files: ["**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx"],
-
-    languageOptions: {
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -126,6 +102,7 @@ export default defineConfig([
     extends: compat.extends(
       "plugin:@typescript-eslint/recommended",
       "plugin:n/recommended",
+      "plugin:react/recommended",
       "prettier",
     ),
 
@@ -135,11 +112,19 @@ export default defineConfig([
 
     languageOptions: {
       parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
     },
 
     rules: {
-      // Disable for TypeScript - TypeScript handles module resolution with path aliases
       "n/no-missing-import": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": [
+        "error",
+        {
+          ignore: ["css"],
+        },
+      ],
     },
   },
   {
