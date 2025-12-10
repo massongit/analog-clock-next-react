@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_CMD: "node --version && npm --version"
+      SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS: 168 # 7日
     steps:
       - name: Generate a token
         id: generate_token
@@ -55,7 +56,9 @@ jobs:
         run: bash "${GITHUB_WORKSPACE}/scripts/format/format/update_versions.sh"
       - name: Update packages
         if: github.event_name != 'pull_request' || github.event.action != 'closed'
-        run: npm install
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/AikidoSec/safe-chain/main/install-scripts/install-safe-chain.sh | sh -s -- --ci
+          npm install
       - if: github.event_name != 'pull_request' || github.event.action != 'closed'
         run: bash "${GITHUB_WORKSPACE}/scripts/format/format/format.sh"
       - uses: dev-hato/actions-diff-pr-management@9de3de40217217a73ac95f3751d7bfe1c9f23ead # v2.2.3
