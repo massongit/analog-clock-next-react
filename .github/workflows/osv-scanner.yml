@@ -10,24 +10,21 @@
 # see https://google.github.io/osv-scanner/github-action/
 
 name: OSV-Scanner
-
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   merge_group:
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
-    - cron: '32 14 * * 2'
+    - cron: "32 14 * * 2"
   push:
-    branches: [ "main" ]
-
+    branches: ["main"]
 permissions:
   actions: read
   # Require writing security events to upload SARIF file to security tab
   security-events: write
   # Read commit contents
   contents: read
-
 jobs:
   scan-scheduled:
     if: ${{ github.event_name == 'push' || github.event_name == 'schedule' }}
