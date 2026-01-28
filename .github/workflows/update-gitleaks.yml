@@ -35,7 +35,7 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/AikidoSec/safe-chain/main/install-scripts/install-safe-chain.sh | sh -s -- --ci
           npm ci
-      - uses: dev-hato/actions-update-gitleaks@add7d5dccd75b8db56ef5e55f1184594b7b8c13c # v0.0.100
+      - uses: dev-hato/actions-update-gitleaks@370380f5e1c8ab0e0f81ca826cabb881701acd1a # v0.0.102
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
 concurrency:
