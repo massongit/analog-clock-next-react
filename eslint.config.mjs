@@ -97,6 +97,12 @@ export default defineConfig([
         },
       },
     },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
   {
     files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
@@ -116,6 +122,20 @@ export default defineConfig([
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
+    },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
+      node: {
+        tryExtensions: [".js", ".tsx"],
+      },
+    },
+
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": ["error", { ignore: ["css"] }],
     },
   },
   ...pluginVue.configs["flat/recommended"],
