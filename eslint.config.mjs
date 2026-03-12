@@ -1,4 +1,4 @@
-// https://github.com/super-linter/super-linter/blob/0d8f7aad449c1dc8ecaf2362684de5d379d2cd7d/TEMPLATES/eslint.config.mjs
+// https://github.com/super-linter/super-linter/blob/644fff4cf8f9c402888e29313139dd6e7cbce40e/TEMPLATES/eslint.config.mjs
 import { defineConfig, globalIgnores } from "eslint/config";
 import n from "eslint-plugin-n";
 import prettier from "eslint-plugin-prettier";
@@ -6,12 +6,11 @@ import globals from "globals";
 import jsoncParser from "jsonc-eslint-parser";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import vueParser from "vue-eslint-parser";
+import pluginVue from "eslint-plugin-vue";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
-import next from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +21,6 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-  next.configs["core-web-vitals"],
   globalIgnores(["!**/.*", "**/node_modules/.*"]),
   {
     extends: compat.extends("eslint:recommended"),
@@ -97,12 +95,6 @@ export default defineConfig([
         },
       },
     },
-
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
   },
   {
     files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
@@ -123,35 +115,6 @@ export default defineConfig([
       ecmaVersion: "latest",
       sourceType: "module",
     },
-
-    settings: {
-      react: {
-        version: "detect",
-      },
-      node: {
-        tryExtensions: [".js", ".tsx"],
-      },
-    },
-
-    rules: {
-      "react/react-in-jsx-scope": "off",
-      "react/no-unknown-property": ["error", { ignore: ["css"] }],
-    },
   },
-  {
-    files: ["**/*.vue"],
-    extends: compat.extends("plugin:vue/recommended"),
-
-    languageOptions: {
-      parser: vueParser,
-      ecmaVersion: "latest",
-      sourceType: "module",
-
-      parserOptions: {
-        ecmaFeatures: {
-          modules: true,
-        },
-      },
-    },
-  },
+  ...pluginVue.configs["flat/recommended"],
 ]);
