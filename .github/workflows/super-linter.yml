@@ -13,8 +13,6 @@ permissions:
 jobs:
   super-linter:
     runs-on: ubuntu-latest
-    env:
-      SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS: 168 # 7日
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -24,10 +22,9 @@ jobs:
         with:
           node-version-file: package.json
           cache: npm
+      - uses: flatt-security/setup-takumi-guard-npm@9a5d797c2085b6326d3a2985c08e3a114b9b88c1 # v1.1.1
       - name: Install
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/AikidoSec/safe-chain/main/install-scripts/install-safe-chain.sh | sh -s -- --ci
-          npm ci
+        run: npm ci
       - run: bash "${GITHUB_WORKSPACE}/scripts/super_linter/super_linter/set_path.sh"
       - name: Super-Linter
         uses: super-linter/super-linter/slim@61abc07d755095a68f4987d1c2c3d1d64408f1f9 # v8.5.0
