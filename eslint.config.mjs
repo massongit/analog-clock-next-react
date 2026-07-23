@@ -65,6 +65,12 @@ export default defineConfig([
         },
       },
     },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
   {
     files: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx"],
