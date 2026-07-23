@@ -103,6 +103,7 @@ export default defineConfig([
     },
 
     rules: {
+      "n/no-missing-import": "off",
       "react/react-in-jsx-scope": "off",
       "react/no-unknown-property": ["error", { ignore: ["css"] }],
     },
