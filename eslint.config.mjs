@@ -87,6 +87,17 @@ export default defineConfig([
       ecmaVersion: "latest",
       sourceType: "module",
     },
+
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/no-unknown-property": ["error", { ignore: ["css"] }],
+    },
   },
   ...pluginVue.configs["flat/recommended"],
 ]);
