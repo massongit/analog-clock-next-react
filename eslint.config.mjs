@@ -11,6 +11,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import next from "@next/eslint-plugin-next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  next.configs["core-web-vitals"],
   globalIgnores(["!**/.*", "**/node_modules/.*"]),
   {
     extends: compat.extends("eslint:recommended"),
