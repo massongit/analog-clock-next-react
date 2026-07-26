@@ -21,8 +21,8 @@
   "devDependencies": {
     "@eslint/eslintrc": "3.3.6",
     "@eslint/js": "9.39.5",
-    "@next/bundle-analyzer": "16.1.6",
-    "@next/eslint-plugin-next": "16.1.6",
+    "@next/bundle-analyzer": "16.2.10",
+    "@next/eslint-plugin-next": "16.2.10",
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/node": "24.13.3",
