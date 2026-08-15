@@ -57,8 +57,5 @@
     "textlint-rule-terminology": "5.2.16",
     "typescript": "5.9.3",
     "vue-eslint-parser": "10.4.1"
-  },
-  "overrides": {
-    "sharp": "0.35.3"
   }
 }
