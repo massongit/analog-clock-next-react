@@ -22,7 +22,7 @@ jobs:
         with:
           node-version-file: package.json
           cache: npm
-      - uses: flatt-security/setup-takumi-guard-npm@6d4182745c1e474c35a023573c2612c085be45a4 # v1.2.0
+      - uses: flatt-security/setup-takumi-guard-npm@14f07d0cbc739b42a1b7c70a04c2b84cd1318ddd # v1.4.0
       - name: Install
         run: npm ci
       - run: bash "${GITHUB_WORKSPACE}/scripts/super_linter/super_linter/set_path.sh"
