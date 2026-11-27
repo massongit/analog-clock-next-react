@@ -30,7 +30,7 @@
     "@types/react-dom": "19.3.0",
     "@typescript-eslint/eslint-plugin": "8.73.0",
     "@typescript-eslint/parser": "8.73.0",
-    "autoprefixer": "10.6.2",
+    "autoprefixer": "10.7.0",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsonc": "3.4.2",
